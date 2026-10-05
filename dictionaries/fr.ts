@@ -4,7 +4,7 @@ const fr: Dict = {
   meta: {
     title: "A.A.Pneus — Pneus neufs et d'occasion à Viana do Castelo",
     description:
-      "Pneus neufs et d'occasion pour voitures, motos, utilitaires et camping-cars à Viana do Castelo, Portugal. Montage, parallélisme, vidange, réparation de crevaisons et gardiennage de pneus.",
+      "Pneus neufs et d'occasion pour voitures, motos, utilitaires et camping-cars à Viana do Castelo, Portugal. Montage, parallélisme, réparation de crevaisons et lavage auto.",
   },
   langName: "Français",
   skip: "Aller au contenu",
@@ -98,9 +98,8 @@ const fr: Dict = {
     items: [
       { id: "fitting", title: "Montage et équilibrage", text: "Montage de pneus neufs ou d'occasion avec équilibrage des roues." },
       { id: "alignment", title: "Parallélisme", text: "La voiture tire d'un côté ou les pneus s'usent de façon irrégulière ? Nous faisons le réglage." },
-      { id: "oil", title: "Vidange", text: "Huile et filtre changés pendant que vous attendez." },
       { id: "puncture", title: "Réparation de crevaisons", text: "Réparation rapide et sûre dès que la crevaison le permet." },
-      { id: "storage", title: "Gardiennage de pneus", text: "Nous stockons vos pneus de saison en bonnes conditions jusqu'au prochain changement." },
+      { id: "carwash", title: "Lavage auto", text: "Nettoyage en profondeur, nettoyage des sièges et désinfection." },
     ],
   },
   brands: { title: "Les marques avec lesquelles nous travaillons" },

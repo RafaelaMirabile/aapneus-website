@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Check, Crosshair, Droplets, Gauge, MapPin, Navigation, Phone, Warehouse, Wrench } from "lucide-react";
+import { ArrowRight, Check, Crosshair, Gauge, MapPin, Navigation, Phone, Sparkles, Wrench } from "lucide-react";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { fullAddress, hours, mapsDirectionsUrl, mapsQuery, site, whatsappUrl } from "@/lib/site";
 import { Header } from "@/components/Header";
@@ -7,7 +7,7 @@ import { TireFinder } from "@/components/TireFinder";
 import { HoursTable } from "@/components/OpenStatus";
 import { FacebookIcon, WhatsAppIcon } from "@/components/BrandIcons";
 
-const serviceIcons = { fitting: Gauge, alignment: Crosshair, oil: Droplets, puncture: Wrench, storage: Warehouse } as const;
+const serviceIcons = { fitting: Gauge, alignment: Crosshair, puncture: Wrench, carwash: Sparkles } as const;
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: raw } = await params;
@@ -155,7 +155,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     <h3 className="service__title">{s.title}</h3>
                     <p className="service__text">{s.text}</p>
                     <a
-                      href={whatsappUrl(`${t.services.bookMsg} ${s.title}`)}
+                      href={whatsappUrl(`${t.services.bookMsg} ${s.title}`, s.id === "carwash" ? site.carWashWhatsapp : undefined)}
                       className="service__link"
                       target="_blank"
                       rel="noopener noreferrer"

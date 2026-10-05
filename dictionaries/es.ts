@@ -4,7 +4,7 @@ const es: Dict = {
   meta: {
     title: "A.A.Pneus — Neumáticos nuevos y seminuevos en Viana do Castelo",
     description:
-      "Neumáticos nuevos y seminuevos para coches, motos, furgonetas y autocaravanas en Viana do Castelo, Portugal. Montaje, alineación, cambio de aceite, reparación de pinchazos y guarda de neumáticos.",
+      "Neumáticos nuevos y seminuevos para coches, motos, furgonetas y autocaravanas en Viana do Castelo, Portugal. Montaje, alineación, reparación de pinchazos y lavado de coches.",
   },
   langName: "Español",
   skip: "Saltar al contenido",
@@ -98,9 +98,8 @@ const es: Dict = {
     items: [
       { id: "fitting", title: "Montaje y equilibrado", text: "Montaje de neumáticos nuevos o seminuevos con equilibrado de ruedas." },
       { id: "alignment", title: "Alineación de dirección", text: "¿El coche se va hacia un lado o los neumáticos se gastan de forma irregular? Lo alineamos." },
-      { id: "oil", title: "Cambio de aceite", text: "Aceite y filtro cambiados mientras espera." },
       { id: "puncture", title: "Reparación de pinchazos", text: "Reparación rápida y segura siempre que el pinchazo lo permita." },
-      { id: "storage", title: "Guarda de neumáticos", text: "Guardamos sus neumáticos de temporada en buenas condiciones hasta el próximo cambio." },
+      { id: "carwash", title: "Lavado de coches", text: "Limpieza detallada, limpieza de tapicerías e higienización." },
     ],
   },
   brands: { title: "Marcas con las que trabajamos" },

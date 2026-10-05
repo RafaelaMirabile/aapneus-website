@@ -4,7 +4,7 @@ const de: Dict = {
   meta: {
     title: "A.A.Pneus — Neue und gebrauchte Reifen in Viana do Castelo",
     description:
-      "Neue und gebrauchte Reifen für Autos, Motorräder, Transporter und Wohnmobile in Viana do Castelo, Portugal. Montage, Achsvermessung, Ölwechsel, Reifenreparatur und Reifeneinlagerung.",
+      "Neue und gebrauchte Reifen für Autos, Motorräder, Transporter und Wohnmobile in Viana do Castelo, Portugal. Montage, Achsvermessung, Reifenreparatur und Autowäsche.",
   },
   langName: "Deutsch",
   skip: "Zum Inhalt springen",
@@ -98,9 +98,8 @@ const de: Dict = {
     items: [
       { id: "fitting", title: "Montage & Auswuchten", text: "Montage neuer oder gebrauchter Reifen inklusive Auswuchten." },
       { id: "alignment", title: "Achsvermessung", text: "Auto zieht zur Seite oder Reifen nutzen sich ungleichmäßig ab? Wir richten es aus." },
-      { id: "oil", title: "Ölwechsel", text: "Öl und Filter gewechselt, während Sie warten." },
       { id: "puncture", title: "Reifenreparatur", text: "Schnelle, sichere Reparatur, wann immer der Schaden es zulässt." },
-      { id: "storage", title: "Reifeneinlagerung", text: "Wir lagern Ihre Saisonreifen fachgerecht bis zum nächsten Wechsel." },
+      { id: "carwash", title: "Autowäsche", text: "Gründliche Reinigung, Polsterreinigung und Desinfektion." },
     ],
   },
   brands: { title: "Marken, mit denen wir arbeiten" },

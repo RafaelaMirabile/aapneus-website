@@ -428,7 +428,7 @@ button, a, select, label, summary { touch-action: manipulation; }
 /* ---------- services ---------- */
 .services { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
 @media (min-width: 640px) { .services { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1100px) { .services { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 1100px) { .services { grid-template-columns: repeat(4, 1fr); } }
 .service {
   position: relative; display: flex; flex-direction: column; padding: 28px 24px; border-radius: var(--radius);
   background: var(--ink-2); border: 1px solid var(--line-dark); overflow: hidden;

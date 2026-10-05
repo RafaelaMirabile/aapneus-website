@@ -4,7 +4,7 @@ const en: Dict = {
   meta: {
     title: "A.A.Pneus — New and part-worn tyres in Viana do Castelo",
     description:
-      "New and part-worn tyres for cars, motorcycles, vans and motorhomes in Viana do Castelo, Portugal. Fitting, wheel alignment, oil change, puncture repair and tyre storage.",
+      "New and part-worn tyres for cars, motorcycles, vans and motorhomes in Viana do Castelo, Portugal. Fitting, wheel alignment, puncture repair and car wash.",
   },
   langName: "English",
   skip: "Skip to content",
@@ -98,9 +98,8 @@ const en: Dict = {
     items: [
       { id: "fitting", title: "Fitting & balancing", text: "Fitting of new or part-worn tyres with wheel balancing." },
       { id: "alignment", title: "Wheel alignment", text: "Car pulling to one side or tyres wearing unevenly? We'll align it." },
-      { id: "oil", title: "Oil change", text: "Oil and filter changed while you wait." },
       { id: "puncture", title: "Puncture repair", text: "Fast, safe repair whenever the puncture allows it." },
-      { id: "storage", title: "Tyre storage", text: "We keep your seasonal tyres in good condition until the next change." },
+      { id: "carwash", title: "Car wash", text: "Detailed cleaning, upholstery cleaning and sanitising." },
     ],
   },
   brands: { title: "Brands we work with" },

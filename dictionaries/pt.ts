@@ -2,7 +2,7 @@ const pt = {
   meta: {
     title: "A.A.Pneus — Pneus novos e semi-novos em Viana do Castelo",
     description:
-      "Pneus novos e semi-novos para carros, motas, comerciais e autocaravanas em Viana do Castelo. Montagem, alinhamento, mudança de óleo, reparação de furos e armazenamento de pneus.",
+      "Pneus novos e semi-novos para carros, motas, comerciais e autocaravanas em Viana do Castelo. Montagem, alinhamento, reparação de furos e lavagem auto.",
   },
   langName: "Português",
   skip: "Saltar para o conteúdo",
@@ -96,9 +96,8 @@ const pt = {
     items: [
       { id: "fitting", title: "Montagem e equilibragem", text: "Montagem de pneus novos ou semi-novos com equilibragem das rodas." },
       { id: "alignment", title: "Alinhamento de direção", text: "Carro a puxar para um lado ou pneus a gastar de forma irregular? Alinhamos a direção." },
-      { id: "oil", title: "Mudança de óleo", text: "Óleo e filtro trocados enquanto espera." },
       { id: "puncture", title: "Reparação de furos", text: "Reparação rápida e segura sempre que o furo o permitir." },
-      { id: "storage", title: "Armazenamento de pneus", text: "Guardamos os seus pneus de época em boas condições até à próxima troca." },
+      { id: "carwash", title: "Lavagem auto", text: "Limpeza detalhada, limpeza de estofos e higienização." },
     ],
   },
   brands: { title: "Marcas com que trabalhamos" },

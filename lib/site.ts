@@ -5,6 +5,7 @@ export const site = {
   url: "https://www.aappneus.com",
   whatsapp: "351912297577", // international format, digits only (used for wa.me links)
   whatsappDisplay: "+351 912 297 577",
+  carWashWhatsapp: "351928341261", // WhatsApp for the car wash service card
   phone: "+351912297577",
   phoneDisplay: "912 297 577",
   address: {
@@ -25,8 +26,8 @@ export const fullAddress = `${site.address.street}, ${site.address.postalCode} $
 export const mapsQuery = encodeURIComponent(`A.A.Pneus, ${fullAddress}`);
 export const mapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}`;
 
-export function whatsappUrl(message?: string) {
-  const base = `https://wa.me/${site.whatsapp}`;
+export function whatsappUrl(message?: string, number: string = site.whatsapp) {
+  const base = `https://wa.me/${number}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
