@@ -3,8 +3,8 @@
 export const site = {
   name: "A.A.Pneus",
   url: "https://www.aappneus.com",
-  whatsapp: "351912673850", // international format, digits only (used for wa.me links)
-  whatsappDisplay: "+351 912 673 850",
+  whatsapp: "351912297577", // international format, digits only (used for wa.me links)
+  whatsappDisplay: "+351 912 297 577",
   phone: "+351912297577",
   phoneDisplay: "912 297 577",
   address: {
