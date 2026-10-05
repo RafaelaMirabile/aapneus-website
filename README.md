@@ -25,4 +25,4 @@ The tyre finder and all "Book"/"Get a price" buttons open WhatsApp (`wa.me`) wit
 
 ## Deploy
 
-Easiest: push to GitHub and import the repo on [Vercel](https://vercel.com) (free tier is fine), then point `aappneus.com` to it.
+Easiest: push to GitHub and import the repo on [Vercel](https://vercel.com) (free tier is fine), then point `aapneus.com` to it.
