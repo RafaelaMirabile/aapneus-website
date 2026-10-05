@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+# original photos (optimized copies live in public/images)
+/Images/
