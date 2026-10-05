@@ -83,7 +83,7 @@ const pt = {
     askMsg: "Olá A.A.Pneus! Gostaria de saber preços de:",
     items: [
       { title: "Pneus novos", text: "Michelin, Hankook, Goodyear e outras marcas de referência.", img: "montagem-pneus", alt: "Expositores de pneus Hankook, Michelin e Goodyear na oficina" },
-      { title: "Semi-novos", text: "Pneus usados selecionados, em bom estado e a preço acessível.", img: "stock-pneus", alt: "Armazém com grande stock de pneus" },
+      { title: "Semi-novos", text: "Pneus semi-novos selecionados, em bom estado e a preço acessível.", img: "stock-pneus", alt: "Armazém com grande stock de pneus" },
       { title: "Motas", text: "Medidas para estrada, scooter e desporto.", img: "pneus-mota", alt: "Pilhas de pneus de mota com as medidas escritas" },
       { title: "Comerciais e autocaravanas", text: "Pneus reforçados e espaço para veículos grandes.", img: "autocaravana", alt: "Autocaravana dentro da oficina" },
     ],

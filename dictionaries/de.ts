@@ -2,9 +2,9 @@ import type { Dict } from "./pt";
 
 const de: Dict = {
   meta: {
-    title: "A.A.Pneus — Neue und gebrauchte Reifen in Viana do Castelo",
+    title: "A.A.Pneus — Neue und neuwertige Reifen in Viana do Castelo",
     description:
-      "Neue und gebrauchte Reifen für Autos, Motorräder, Transporter und Wohnmobile in Viana do Castelo, Portugal. Montage, Achsvermessung, Reifenreparatur und Autowäsche.",
+      "Neue und neuwertige Reifen für Autos, Motorräder, Transporter und Wohnmobile in Viana do Castelo, Portugal. Montage, Achsvermessung, Reifenreparatur und Autowäsche.",
   },
   langName: "Deutsch",
   skip: "Zum Inhalt springen",
@@ -33,14 +33,14 @@ const de: Dict = {
   hero: {
     eyebrow: "Reifenwerkstatt · Viana do Castelo",
     title1: "Neue und",
-    title2: "gebrauchte Reifen",
+    title2: "neuwertige Reifen",
     title3: "zum besten Preis.",
     lead: "Großes Lager für Autos, Motorräder, Transporter und Wohnmobile. Montage, Achsvermessung und Reparaturen an einem Ort — nennen Sie uns die Größe, wir antworten per WhatsApp.",
     ctaFinder: "Meinen Reifen finden",
     ctaCall: "Anrufen",
     chips: ["Autos", "Motorräder", "Transporter", "Wohnmobile"],
     photoAlt: "Gelber Eingang der Werkstatt A.A.Pneus in Viana do Castelo",
-    badge: "Neu · Gebraucht",
+    badge: "Neu · Neuwertig",
   },
   finder: {
     eyebrow: "Schnellanfrage",
@@ -54,7 +54,7 @@ const de: Dict = {
     choose: "Wählen",
     quantity: "Anzahl",
     condition: "Art",
-    conditions: { new: "Neu", used: "Gebraucht", any: "Egal" },
+    conditions: { new: "Neu", used: "Neuwertig", any: "Egal" },
     send: "Preis per WhatsApp anfragen",
     error: "Wählen Sie Breite, Querschnitt und Felge, um fortzufahren.",
     noSize: "Größe unbekannt? Schicken Sie uns ein Foto des Reifens per WhatsApp.",
@@ -85,7 +85,7 @@ const de: Dict = {
     askMsg: "Hallo A.A.Pneus! Ich hätte gern Preise für:",
     items: [
       { title: "Neue Reifen", text: "Michelin, Hankook, Goodyear und weitere Markenhersteller.", img: "montagem-pneus", alt: "Reifenständer von Hankook, Michelin und Goodyear in der Werkstatt" },
-      { title: "Gebraucht", text: "Ausgewählte Gebrauchtreifen in gutem Zustand zum fairen Preis.", img: "stock-pneus", alt: "Lagerhalle mit großem Reifenbestand" },
+      { title: "Neuwertig", text: "Ausgewählte neuwertige Reifen in gutem Zustand zum fairen Preis.", img: "stock-pneus", alt: "Lagerhalle mit großem Reifenbestand" },
       { title: "Motorräder", text: "Größen für Straße, Roller und Sport.", img: "pneus-mota", alt: "Stapel von Motorradreifen mit aufgeschriebenen Größen" },
       { title: "Transporter & Wohnmobile", text: "Verstärkte Reifen und Platz für große Fahrzeuge.", img: "autocaravana", alt: "Wohnmobil in der Werkstatt" },
     ],
@@ -96,7 +96,7 @@ const de: Dict = {
     book: "Per WhatsApp buchen",
     bookMsg: "Hallo A.A.Pneus! Ich möchte einen Termin für:",
     items: [
-      { id: "fitting", title: "Montage & Auswuchten", text: "Montage neuer oder gebrauchter Reifen inklusive Auswuchten." },
+      { id: "fitting", title: "Montage & Auswuchten", text: "Montage neuer oder neuwertiger Reifen inklusive Auswuchten." },
       { id: "alignment", title: "Achsvermessung", text: "Auto zieht zur Seite oder Reifen nutzen sich ungleichmäßig ab? Wir richten es aus." },
       { id: "puncture", title: "Reifenreparatur", text: "Schnelle, sichere Reparatur, wann immer der Schaden es zulässt." },
       { id: "carwash", title: "Autowäsche", text: "Gründliche Reinigung, Polsterreinigung und Desinfektion." },
@@ -106,9 +106,9 @@ const de: Dict = {
   about: {
     eyebrow: "Die Werkstatt",
     title: "Eine echte Reifenwerkstatt in Viana do Castelo",
-    p1: "Bei A.A.Pneus finden Sie ein Lager voller neuer und gebrauchter Reifen, montagebereit am selben Tag. Wir arbeiten an Autos, Motorrädern, Transportern und Wohnmobilen.",
+    p1: "Bei A.A.Pneus finden Sie ein Lager voller neuer und neuwertiger Reifen, montagebereit am selben Tag. Wir arbeiten an Autos, Motorrädern, Transportern und Wohnmobilen.",
     p2: "Ganz einfach: Nennen Sie uns die Größe, wir nennen Ihnen den Preis und vereinbaren einen passenden Termin.",
-    points: ["Großes Lager vor Ort", "Neue und gebrauchte Reifen", "Montage am selben Tag", "Kontakt per WhatsApp"],
+    points: ["Großes Lager vor Ort", "Neue und neuwertige Reifen", "Montage am selben Tag", "Kontakt per WhatsApp"],
   },
   contact: {
     eyebrow: "Kontakt",
@@ -124,7 +124,7 @@ const de: Dict = {
     mapTitle: "Karte mit dem Standort von A.A.Pneus",
   },
   footer: {
-    tagline: "Neue und gebrauchte Reifen in Viana do Castelo.",
+    tagline: "Neue und neuwertige Reifen in Viana do Castelo.",
     rights: "Alle Rechte vorbehalten.",
     complaints: "Beschwerdebuch",
   },

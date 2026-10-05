@@ -2,9 +2,9 @@ import type { Dict } from "./pt";
 
 const en: Dict = {
   meta: {
-    title: "A.A.Pneus — New and part-worn tyres in Viana do Castelo",
+    title: "A.A.Pneus — New and nearly new tyres in Viana do Castelo",
     description:
-      "New and part-worn tyres for cars, motorcycles, vans and motorhomes in Viana do Castelo, Portugal. Fitting, wheel alignment, puncture repair and car wash.",
+      "New and nearly new tyres for cars, motorcycles, vans and motorhomes in Viana do Castelo, Portugal. Fitting, wheel alignment, puncture repair and car wash.",
   },
   langName: "English",
   skip: "Skip to content",
@@ -33,14 +33,14 @@ const en: Dict = {
   hero: {
     eyebrow: "Tyre workshop · Viana do Castelo",
     title1: "New and",
-    title2: "part-worn tyres",
+    title2: "nearly new tyres",
     title3: "at the best price.",
     lead: "Large stock for cars, motorcycles, vans and motorhomes. Fitting, alignment and repairs in one place — tell us your size and we'll reply on WhatsApp.",
     ctaFinder: "Find my tyre",
     ctaCall: "Call",
     chips: ["Cars", "Motorcycles", "Vans", "Motorhomes"],
     photoAlt: "Yellow entrance of the A.A.Pneus workshop in Viana do Castelo",
-    badge: "New · Part-worn",
+    badge: "New · Nearly new",
   },
   finder: {
     eyebrow: "Quick request",
@@ -54,7 +54,7 @@ const en: Dict = {
     choose: "Choose",
     quantity: "Quantity",
     condition: "Type",
-    conditions: { new: "New", used: "Part-worn", any: "Either" },
+    conditions: { new: "New", used: "Nearly new", any: "Either" },
     send: "Get a price on WhatsApp",
     error: "Choose the width, profile and rim to continue.",
     noSize: "Don't know your size? Send us a photo of your tyre on WhatsApp.",
@@ -85,7 +85,7 @@ const en: Dict = {
     askMsg: "Hello A.A.Pneus! I'd like prices for:",
     items: [
       { title: "New tyres", text: "Michelin, Hankook, Goodyear and other leading brands.", img: "montagem-pneus", alt: "Hankook, Michelin and Goodyear tyre displays in the workshop" },
-      { title: "Part-worn", text: "Selected used tyres in good condition at an affordable price.", img: "stock-pneus", alt: "Warehouse with a large stock of tyres" },
+      { title: "Nearly new", text: "Selected nearly new tyres in good condition at an affordable price.", img: "stock-pneus", alt: "Warehouse with a large stock of tyres" },
       { title: "Motorcycles", text: "Sizes for road, scooter and sport bikes.", img: "pneus-mota", alt: "Stacks of motorcycle tyres with sizes written on them" },
       { title: "Vans & motorhomes", text: "Reinforced tyres and room for large vehicles.", img: "autocaravana", alt: "Motorhome inside the workshop" },
     ],
@@ -96,7 +96,7 @@ const en: Dict = {
     book: "Book on WhatsApp",
     bookMsg: "Hello A.A.Pneus! I'd like to book:",
     items: [
-      { id: "fitting", title: "Fitting & balancing", text: "Fitting of new or part-worn tyres with wheel balancing." },
+      { id: "fitting", title: "Fitting & balancing", text: "Fitting of new or nearly new tyres with wheel balancing." },
       { id: "alignment", title: "Wheel alignment", text: "Car pulling to one side or tyres wearing unevenly? We'll align it." },
       { id: "puncture", title: "Puncture repair", text: "Fast, safe repair whenever the puncture allows it." },
       { id: "carwash", title: "Car wash", text: "Detailed cleaning, upholstery cleaning and sanitising." },
@@ -106,9 +106,9 @@ const en: Dict = {
   about: {
     eyebrow: "The workshop",
     title: "A proper tyre workshop in Viana do Castelo",
-    p1: "At A.A.Pneus you'll find a warehouse full of new and part-worn tyres, ready to fit the same day. We work on cars, motorcycles, vans and motorhomes.",
+    p1: "At A.A.Pneus you'll find a warehouse full of new and nearly new tyres, ready to fit the same day. We work on cars, motorcycles, vans and motorhomes.",
     p2: "No hassle: tell us your size, we give you a price and book a time that suits you.",
-    points: ["Large stock in our warehouse", "New and part-worn tyres", "Same-day fitting", "Service via WhatsApp"],
+    points: ["Large stock in our warehouse", "New and nearly new tyres", "Same-day fitting", "Service via WhatsApp"],
   },
   contact: {
     eyebrow: "Contact",
@@ -124,7 +124,7 @@ const en: Dict = {
     mapTitle: "Map showing the A.A.Pneus location",
   },
   footer: {
-    tagline: "New and part-worn tyres in Viana do Castelo.",
+    tagline: "New and nearly new tyres in Viana do Castelo.",
     rights: "All rights reserved.",
     complaints: "Complaints Book",
   },

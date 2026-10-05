@@ -2,9 +2,9 @@ import type { Dict } from "./pt";
 
 const fr: Dict = {
   meta: {
-    title: "A.A.Pneus — Pneus neufs et d'occasion à Viana do Castelo",
+    title: "A.A.Pneus — Pneus neufs et quasi neufs à Viana do Castelo",
     description:
-      "Pneus neufs et d'occasion pour voitures, motos, utilitaires et camping-cars à Viana do Castelo, Portugal. Montage, parallélisme, réparation de crevaisons et lavage auto.",
+      "Pneus neufs et quasi neufs pour voitures, motos, utilitaires et camping-cars à Viana do Castelo, Portugal. Montage, parallélisme, réparation de crevaisons et lavage auto.",
   },
   langName: "Français",
   skip: "Aller au contenu",
@@ -33,14 +33,14 @@ const fr: Dict = {
   hero: {
     eyebrow: "Atelier de pneus · Viana do Castelo",
     title1: "Pneus neufs",
-    title2: "et d'occasion",
+    title2: "et quasi neufs",
     title3: "au meilleur prix.",
     lead: "Grand stock pour voitures, motos, utilitaires et camping-cars. Montage, parallélisme et réparations au même endroit — donnez-nous la dimension et nous répondons sur WhatsApp.",
     ctaFinder: "Trouver mon pneu",
     ctaCall: "Appeler",
     chips: ["Voitures", "Motos", "Utilitaires", "Camping-cars"],
     photoAlt: "Entrée jaune de l'atelier A.A.Pneus à Viana do Castelo",
-    badge: "Neufs · Occasion",
+    badge: "Neufs · Quasi neufs",
   },
   finder: {
     eyebrow: "Demande rapide",
@@ -54,7 +54,7 @@ const fr: Dict = {
     choose: "Choisir",
     quantity: "Quantité",
     condition: "Type",
-    conditions: { new: "Neuf", used: "Occasion", any: "Peu importe" },
+    conditions: { new: "Neuf", used: "Quasi neuf", any: "Peu importe" },
     send: "Demander le prix sur WhatsApp",
     error: "Choisissez la largeur, la série et la jante pour continuer.",
     noSize: "Vous ne connaissez pas la dimension ? Envoyez-nous une photo du pneu sur WhatsApp.",
@@ -85,7 +85,7 @@ const fr: Dict = {
     askMsg: "Bonjour A.A.Pneus ! Je souhaiterais connaître vos prix pour :",
     items: [
       { title: "Pneus neufs", text: "Michelin, Hankook, Goodyear et d'autres grandes marques.", img: "montagem-pneus", alt: "Présentoirs de pneus Hankook, Michelin et Goodyear dans l'atelier" },
-      { title: "Occasion", text: "Pneus d'occasion sélectionnés, en bon état et à prix doux.", img: "stock-pneus", alt: "Entrepôt avec un grand stock de pneus" },
+      { title: "Quasi neufs", text: "Pneus quasi neufs sélectionnés, en bon état et à prix doux.", img: "stock-pneus", alt: "Entrepôt avec un grand stock de pneus" },
       { title: "Motos", text: "Dimensions route, scooter et sport.", img: "pneus-mota", alt: "Piles de pneus moto avec les dimensions inscrites" },
       { title: "Utilitaires et camping-cars", text: "Pneus renforcés et place pour les grands véhicules.", img: "autocaravana", alt: "Camping-car à l'intérieur de l'atelier" },
     ],
@@ -96,7 +96,7 @@ const fr: Dict = {
     book: "Réserver sur WhatsApp",
     bookMsg: "Bonjour A.A.Pneus ! Je souhaiterais réserver :",
     items: [
-      { id: "fitting", title: "Montage et équilibrage", text: "Montage de pneus neufs ou d'occasion avec équilibrage des roues." },
+      { id: "fitting", title: "Montage et équilibrage", text: "Montage de pneus neufs ou quasi neufs avec équilibrage des roues." },
       { id: "alignment", title: "Parallélisme", text: "La voiture tire d'un côté ou les pneus s'usent de façon irrégulière ? Nous faisons le réglage." },
       { id: "puncture", title: "Réparation de crevaisons", text: "Réparation rapide et sûre dès que la crevaison le permet." },
       { id: "carwash", title: "Lavage auto", text: "Nettoyage en profondeur, nettoyage des sièges et désinfection." },
@@ -106,9 +106,9 @@ const fr: Dict = {
   about: {
     eyebrow: "L'atelier",
     title: "Un vrai atelier de pneus à Viana do Castelo",
-    p1: "Chez A.A.Pneus, vous trouverez un entrepôt rempli de pneus neufs et d'occasion, prêts à être montés le jour même. Nous travaillons sur voitures, motos, utilitaires et camping-cars.",
+    p1: "Chez A.A.Pneus, vous trouverez un entrepôt rempli de pneus neufs et quasi neufs, prêts à être montés le jour même. Nous travaillons sur voitures, motos, utilitaires et camping-cars.",
     p2: "Sans complications : donnez-nous la dimension, nous vous donnons le prix et réservons l'heure qui vous convient.",
-    points: ["Grand stock en entrepôt", "Pneus neufs et d'occasion", "Montage le jour même", "Contact par WhatsApp"],
+    points: ["Grand stock en entrepôt", "Pneus neufs et quasi neufs", "Montage le jour même", "Contact par WhatsApp"],
   },
   contact: {
     eyebrow: "Contact",
@@ -124,7 +124,7 @@ const fr: Dict = {
     mapTitle: "Carte de l'emplacement d'A.A.Pneus",
   },
   footer: {
-    tagline: "Pneus neufs et d'occasion à Viana do Castelo.",
+    tagline: "Pneus neufs et quasi neufs à Viana do Castelo.",
     rights: "Tous droits réservés.",
     complaints: "Livre de réclamations",
   },

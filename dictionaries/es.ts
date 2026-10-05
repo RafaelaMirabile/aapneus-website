@@ -85,7 +85,7 @@ const es: Dict = {
     askMsg: "¡Hola A.A.Pneus! Quisiera saber precios de:",
     items: [
       { title: "Neumáticos nuevos", text: "Michelin, Hankook, Goodyear y otras marcas de referencia.", img: "montagem-pneus", alt: "Expositores de neumáticos Hankook, Michelin y Goodyear en el taller" },
-      { title: "Seminuevos", text: "Neumáticos usados seleccionados, en buen estado y a buen precio.", img: "stock-pneus", alt: "Almacén con gran stock de neumáticos" },
+      { title: "Seminuevos", text: "Neumáticos seminuevos seleccionados, en buen estado y a buen precio.", img: "stock-pneus", alt: "Almacén con gran stock de neumáticos" },
       { title: "Motos", text: "Medidas para carretera, scooter y deportivas.", img: "pneus-mota", alt: "Pilas de neumáticos de moto con las medidas escritas" },
       { title: "Furgonetas y autocaravanas", text: "Neumáticos reforzados y espacio para vehículos grandes.", img: "autocaravana", alt: "Autocaravana dentro del taller" },
     ],
