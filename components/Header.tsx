@@ -28,6 +28,7 @@ export function Header({ t, locale, names }: { t: Dict; locale: Locale; names: R
     { href: "#finder", label: t.nav.finder },
     { href: "#tyres", label: t.nav.tyres },
     { href: "#services", label: t.nav.services },
+    { href: "#carwash", label: t.nav.carwash },
     { href: "#about", label: t.nav.about },
     { href: "#contact", label: t.nav.contact },
   ];

@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { ArrowRight, Check, Crosshair, Gauge, MapPin, Navigation, Phone, Sparkles, Wrench } from "lucide-react";
+import { ArrowRight, CalendarDays, Check, Crosshair, Gauge, MapPin, Navigation, Phone, Sparkles, Wrench } from "lucide-react";
 import { getDictionary, isLocale, locales, type Locale } from "@/lib/i18n";
 import { fullAddress, hours, mapsDirectionsUrl, mapsQuery, site, whatsappUrl } from "@/lib/site";
 import { Header } from "@/components/Header";
 import { TireFinder } from "@/components/TireFinder";
+import { CarWashBooking } from "@/components/CarWashBooking";
 import { HoursTable } from "@/components/OpenStatus";
 import { FacebookIcon, WhatsAppIcon } from "@/components/BrandIcons";
 
@@ -154,19 +155,33 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                     </span>
                     <h3 className="service__title">{s.title}</h3>
                     <p className="service__text">{s.text}</p>
-                    <a
-                      href={whatsappUrl(`${t.services.bookMsg} ${s.title}`, s.id === "carwash" ? site.carWashWhatsapp : undefined)}
-                      className="service__link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <WhatsAppIcon size={16} /> {t.services.book}
-                      <span className="sr-only"> — {s.title}</span>
-                    </a>
+                    {s.id === "carwash" ? (
+                      <a href="#carwash" className="service__link">
+                        <CalendarDays size={16} aria-hidden="true" /> {t.carwash.cardCta}
+                        <span className="sr-only"> — {s.title}</span>
+                      </a>
+                    ) : (
+                      <a
+                        href={whatsappUrl(`${t.services.bookMsg} ${s.title}`)}
+                        className="service__link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <WhatsAppIcon size={16} /> {t.services.book}
+                        <span className="sr-only"> — {s.title}</span>
+                      </a>
+                    )}
                   </li>
                 );
               })}
             </ul>
+          </div>
+        </section>
+
+        {/* CAR WASH BOOKING */}
+        <section id="carwash" className="section section--light" aria-labelledby="carwash-title">
+          <div className="container">
+            <CarWashBooking t={t} locale={locale} />
           </div>
         </section>
 

@@ -448,6 +448,54 @@ button, a, select, label, summary { touch-action: manipulation; }
 .service__link svg { color: var(--wa); }
 .service__link:hover { color: var(--yellow); }
 
+/* ---------- car wash booking ---------- */
+.booking { display: grid; background: var(--card); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
+@media (min-width: 900px) { .booking { grid-template-columns: 0.8fr 1.2fr; } }
+.booking__head { padding: 28px 20px; background: var(--ink); color: #fff; border-top: 8px solid var(--yellow); }
+.booking__head .h2 { color: #fff; }
+.booking__lead { color: #d6d6dc; max-width: 32em; }
+.booking__facts { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 12px; }
+.booking__facts li { display: flex; align-items: center; gap: 12px; font-weight: 600; color: #e2e2e8; }
+.booking__facts svg { color: var(--yellow); flex: none; }
+.booking__form { padding: 24px 20px 32px; min-width: 0; }
+@media (min-width: 640px) { .booking__head { padding: 40px; } .booking__form { padding: 36px 40px 40px; } }
+
+.days { display: flex; gap: 8px; overflow-x: auto; padding: 4px 4px 8px; margin: -4px -4px 0; scroll-snap-type: x proximity; }
+.day { position: relative; flex: none; cursor: pointer; scroll-snap-align: start; }
+.day input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.day span {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; width: 64px; height: 84px;
+  border: 2px solid var(--line); border-radius: var(--radius-sm); background: #fff; line-height: 1.15;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.day small { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.day strong { font-family: var(--font-display); font-weight: 800; font-size: 1.75rem; }
+.day:hover span { border-color: var(--ink); }
+.day input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--yellow); }
+.day input:checked + span small { color: #fff; }
+.day input:focus-visible + span { outline: 3px solid var(--ink); box-shadow: 0 0 0 6px var(--yellow); }
+.day--skeleton { width: 64px; height: 84px; border-radius: var(--radius-sm); background: var(--paper); }
+.days[aria-invalid="true"] .day span { border-color: var(--red-ink); }
+
+.slots { display: grid; gap: 12px; }
+.slots__group { display: grid; gap: 12px; }
+.seg__opt--time span { min-width: 72px; font-variant-numeric: tabular-nums; }
+.slots__lunch {
+  display: flex; align-items: center; gap: 8px; margin: 0; padding: 8px 12px; border-radius: var(--radius-sm);
+  background: repeating-linear-gradient(-45deg, #fff8c4 0 10px, #fffbe0 10px 20px); color: var(--text); font-size: 0.875rem; font-weight: 600;
+}
+.slots__hint { margin: 0; color: var(--muted); padding: 12px 14px; border: 2px dashed var(--line); border-radius: var(--radius-sm); }
+
+.booking__fields { display: grid; gap: 16px; margin-bottom: 12px; }
+@media (min-width: 520px) { .booking__fields { grid-template-columns: 1fr 1fr; } }
+.label__opt { font-weight: 500; text-transform: none; letter-spacing: 0; }
+.input {
+  width: 100%; min-height: 48px; padding: 0 14px; border: 2px solid var(--line); border-radius: var(--radius-sm);
+  font: inherit; font-size: 1rem; background: #fff; color: var(--text);
+}
+.input:hover { border-color: var(--ink); }
+.input:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 4px var(--yellow); }
+
 /* ---------- brands marquee ---------- */
 .brands { background: var(--yellow); color: var(--ink); overflow: hidden; border-block: 4px solid var(--ink); }
 .brands__track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
