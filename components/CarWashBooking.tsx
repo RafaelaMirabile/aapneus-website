@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { CalendarDays, Clock, UtensilsCrossed } from "lucide-react";
+import { CalendarDays, ChevronDown, ChevronLeft, ChevronRight, Clock, UtensilsCrossed } from "lucide-react";
 import type { Dict, Locale } from "@/lib/i18n";
 import { fmtTime, hours, site, whatsappUrl } from "@/lib/site";
 import { WhatsAppIcon } from "./BrandIcons";
@@ -11,13 +11,18 @@ type Service = keyof Dict["carwash"]["services"];
 // A booking must fit entirely inside an opening range, so no slot runs into lunch or closing time.
 const washMinutes = 60;
 const slotStep = 30;
-const daysShown = 12;
+// How far ahead clients can book.
+const bookAheadDays = 90;
 // Earliest a same-day slot can start, counted from now.
 const minNotice = 60;
 
+const dayMs = 86_400_000;
 const intlLocale: Record<Locale, string> = { pt: "pt-PT", en: "en-GB", fr: "fr-FR", de: "de-DE", es: "es-ES" };
 
-type Day = { iso: string; date: Date; weekday: number };
+// All dates are UTC midnights representing Lisbon calendar days.
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+const monthStart = (d: Date) => new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), 1));
+const addMonths = (d: Date, n: number) => new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + n, 1));
 
 function lisbonToday() {
   const parts = new Intl.DateTimeFormat("en-GB", {
@@ -42,57 +47,75 @@ function slotsFor(weekday: number, notBefore = 0) {
   });
 }
 
-function upcomingDays() {
-  const { date, minutes } = lisbonToday();
-  const days: Day[] = [];
-  for (let i = 0; days.length < daysShown && i < daysShown * 2; i++) {
-    const d = new Date(date.getTime() + i * 86_400_000);
-    const weekday = d.getUTCDay();
-    const notBefore = i === 0 ? minutes + minNotice : 0;
-    if (slotsFor(weekday, notBefore).flat().length === 0) continue;
-    days.push({ iso: d.toISOString().slice(0, 10), date: d, weekday });
-  }
-  return { days, todayIso: date.toISOString().slice(0, 10), nowMinutes: minutes };
+/** Weeks of the month (Monday first), padded with nulls. */
+function monthGrid(month: Date) {
+  const lead = (month.getUTCDay() + 6) % 7;
+  const count = new Date(Date.UTC(month.getUTCFullYear(), month.getUTCMonth() + 1, 0)).getUTCDate();
+  const cells: (Date | null)[] = Array.from({ length: lead }, () => null);
+  for (let i = 0; i < count; i++) cells.push(new Date(month.getTime() + i * dayMs));
+  while (cells.length % 7) cells.push(null);
+  return Array.from({ length: cells.length / 7 }, (_, w) => cells.slice(w * 7, w * 7 + 7));
 }
 
 export function CarWashBooking({ t, locale }: { t: Dict; locale: Locale }) {
   const c = t.carwash;
   const uid = useId();
-  // Dates depend on the visitor's clock, so they are computed after mount to keep SSR markup stable.
-  const [cal, setCal] = useState<ReturnType<typeof upcomingDays> | null>(null);
+  // "Today" depends on the visitor's clock, so it is computed after mount to keep SSR markup stable.
+  const [now, setNow] = useState<ReturnType<typeof lisbonToday> | null>(null);
   const [service, setService] = useState<Service>("full");
-  const [day, setDay] = useState("");
+  const [open, setOpen] = useState(false);
+  const [month, setMonth] = useState<Date | null>(null);
+  const [day, setDay] = useState<Date | null>(null);
   const [time, setTime] = useState<number | null>(null);
   const [car, setCar] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState(false);
 
-  useEffect(() => setCal(upcomingDays()), []);
+  useEffect(() => {
+    const n = lisbonToday();
+    setNow(n);
+    setMonth(monthStart(n.date));
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
 
   const fmt = (d: Date, opts: Intl.DateTimeFormatOptions) =>
     new Intl.DateTimeFormat(intlLocale[locale], { timeZone: "UTC", ...opts }).format(d);
 
-  const selected = cal?.days.find((d) => d.iso === day);
-  const groups = selected
-    ? slotsFor(selected.weekday, day === cal?.todayIso ? cal.nowMinutes + minNotice : 0)
-    : [];
-  const lunch = selected && hours[selected.weekday].length > 1
-    ? [hours[selected.weekday][0][1], hours[selected.weekday][1][0]]
-    : null;
+  const isToday = (d: Date) => !!now && iso(d) === iso(now.date);
+  const notBefore = (d: Date) => (isToday(d) && now ? now.minutes + minNotice : 0);
+  const lastDay = now ? new Date(now.date.getTime() + bookAheadDays * dayMs) : null;
+  const bookable = (d: Date) =>
+    !!now && !!lastDay && d >= now.date && d <= lastDay && slotsFor(d.getUTCDay(), notBefore(d)).flat().length > 0;
 
-  const pickDay = (iso: string) => {
-    setDay(iso);
+  const firstMonth = now ? monthStart(now.date) : null;
+  const finalMonth = lastDay ? monthStart(lastDay) : null;
+  // Monday-first weekday headers (1 Jan 2024 was a Monday).
+  const weekdays = Array.from({ length: 7 }, (_, i) => fmt(new Date(Date.UTC(2024, 0, 1 + i)), { weekday: "short" }));
+
+  const groups = day ? slotsFor(day.getUTCDay(), notBefore(day)) : [];
+  const dayHours = day ? hours[day.getUTCDay()] : [];
+  const lunch = dayHours.length > 1 ? [dayHours[0][1], dayHours[1][0]] : null;
+
+  const pickDay = (d: Date) => {
+    setDay(d);
     setTime(null);
     setError(false);
+    setOpen(false);
   };
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selected || time === null) {
+    if (!day || time === null) {
       setError(true);
       return;
     }
-    const dateText = fmt(selected.date, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    const dateText = fmt(day, { weekday: "long", day: "numeric", month: "long", year: "numeric" });
     const message = [
       c.message.greeting,
       `• ${c.message.service}: ${c.services[service]}`,
@@ -133,31 +156,91 @@ export function CarWashBooking({ t, locale }: { t: Dict; locale: Locale }) {
           </div>
         </fieldset>
 
-        <fieldset className="seg">
-          <legend className="label">
+        <div className="seg">
+          <p className="label" id={`${uid}-day`}>
             <CalendarDays size={16} aria-hidden="true" /> {c.day}
-          </legend>
-          <div className="days" aria-invalid={error && !day ? true : undefined}>
-            {cal
-              ? cal.days.map((d) => (
-                  <label key={d.iso} className="day">
-                    <input type="radio" name="wash-day" value={d.iso} checked={day === d.iso} onChange={() => pickDay(d.iso)} />
-                    <span>
-                      <small>{d.iso === cal.todayIso ? c.today : fmt(d.date, { weekday: "short" })}</small>
-                      <strong>{fmt(d.date, { day: "numeric" })}</strong>
-                      <small>{fmt(d.date, { month: "short" })}</small>
-                    </span>
-                  </label>
-                ))
-              : Array.from({ length: 6 }, (_, i) => <span key={i} className="day day--skeleton" aria-hidden="true" />)}
-          </div>
-        </fieldset>
+          </p>
+          <button
+            type="button"
+            className={`datefield ${day ? "" : "is-empty"}`}
+            aria-labelledby={`${uid}-day ${uid}-dayvalue`}
+            aria-expanded={open}
+            aria-controls={`${uid}-cal`}
+            aria-invalid={error && !day ? true : undefined}
+            onClick={() => setOpen((v) => !v)}
+            disabled={!now}
+          >
+            <CalendarDays size={20} aria-hidden="true" />
+            <span id={`${uid}-dayvalue`}>
+              {day ? fmt(day, { weekday: "long", day: "numeric", month: "long" }) : c.chooseDate}
+            </span>
+            <ChevronDown size={20} aria-hidden="true" className="datefield__chev" />
+          </button>
+
+          {open && month && firstMonth && finalMonth && (
+            <div id={`${uid}-cal`} className="cal">
+              <div className="cal__head">
+                <button
+                  type="button"
+                  className="cal__nav"
+                  onClick={() => setMonth(addMonths(month, -1))}
+                  disabled={month <= firstMonth}
+                  aria-label={c.prevMonth}
+                >
+                  <ChevronLeft size={20} aria-hidden="true" />
+                </button>
+                <p className="cal__month" aria-live="polite">{fmt(month, { month: "long", year: "numeric" })}</p>
+                <button
+                  type="button"
+                  className="cal__nav"
+                  onClick={() => setMonth(addMonths(month, 1))}
+                  disabled={month >= finalMonth}
+                  aria-label={c.nextMonth}
+                >
+                  <ChevronRight size={20} aria-hidden="true" />
+                </button>
+              </div>
+              <table className="cal__grid">
+                <thead>
+                  <tr>
+                    {weekdays.map((w) => (
+                      <th key={w} scope="col">{w.replace(".", "").slice(0, 3)}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {monthGrid(month).map((week, wi) => (
+                    <tr key={wi}>
+                      {week.map((d, di) => (
+                        <td key={di}>
+                          {d && (
+                            <button
+                              type="button"
+                              className={`cal__day ${isToday(d) ? "is-today" : ""}`}
+                              disabled={!bookable(d)}
+                              aria-pressed={day ? iso(d) === iso(day) : false}
+                              aria-label={fmt(d, { weekday: "long", day: "numeric", month: "long" })}
+                              onClick={() => pickDay(d)}
+                            >
+                              {d.getUTCDate()}
+                            </button>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="cal__note">{c.calendarNote}</p>
+            </div>
+          )}
+        </div>
 
         <fieldset className="seg">
           <legend className="label">
             <Clock size={16} aria-hidden="true" /> {c.time}
           </legend>
-          {selected ? (
+          {day ? (
             <div className="slots">
               {groups.map((slots, gi) => (
                 <div key={gi} className="slots__group">
